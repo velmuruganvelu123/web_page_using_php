@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
+        crossorigin="anonymous"></script>
+    <script type=module src=main.js></script>
+    <title>Contact</title>
+</head>
+<body>
+       
+    
+    <my-header></my-header>    
+    <div class="container">        
+        <div class="row">
+            <div class="col-12 col-md-6 col-sm-4">
+                <h2>Talk with our team</h2>
+                <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Officiis, voluptates odit. Illo alias tempora doloremque voluptatum dolores impedit blanditiis. Explicabo harum, qui libero illum facere provident totam obcaecati minus unde!</p>
+                <img class="img-fluid" src="img/mountain_image.jpg" width="500px" height="250px" alt="">
+            </div>
+            <div class="col-12 col-md-6 col-sm-3 pt-3 pb-3">
+                
+                <form   action="function.php" method="POST">
+                    <div class="form-group pb-3">
+                        <label for="fname">First Name :</label>
+                        <input class="form-control" type="text" name="fname" id="fname" placeholder="Enter the first name">
+                    </div>
+                    <div class="form-group pb-3">
+                        <label for="lname">Last Name :</label>
+                        <input class="form-control" type="text" name="lname" id="lname" placeholder="Enter the last name">
+                    </div>
+                    <div class="form-group pb-3">
+                        <label for="email">Company Email :</label>
+                        <input class="form-control" type="text" name="email" id="email" placeholder="Enter the email_id">
+                    </div>
+                    <div class="form-group pb-3">
+                        <label for="pnos">Phone Number :</label>
+                        <input class="form-control" type="text" name="pnos" id="pnos" placeholder="Enter the phone number">
+                    </div>                    
+                    <div class="form-group pb-3">
+                        <label for="country">Country :</label>
+                        <input class="form-control" type="text" name="country" id="country" placeholder="Please select your country">
+                    </div>
+                    <div class="form-group pb-3">
+                        <label for="message">Message:</label>
+                        <textarea class="form-control" placeholder="Leave a comment here" name="message" id="floatingTextarea"></textarea>
+                    </div>
+                    <div class="form-group pb-3">
+                        <input type="checkbox" id="checkbox" name="checkbox">
+                        <label for="checkbox"> your agree to term and condition.</label>                     
+                    </div>
+                    <button type="submit" class="btn btn-primary">Submit</button>
+                </form>                
+            </div>
+        </div>
+    </div>
+    <my-footer></my-footer>     
+</body>
+</html>
