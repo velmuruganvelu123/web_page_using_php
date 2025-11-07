@@ -1,45 +1,11 @@
-class MyHeader extends HTMLElement {
-    connectedCallback() {
-        this.innerHTML = `
-    <header>
-        <div class="container">
-            <div class="row px-2">                 
-                <div class="col-12 col-md-12 col-sm-12 ">
-                    <nav class="navbar navbar-expand-lg">
-                        <div class="container-fluid">
-                            <a class="navbar-brand">
-                                    <img src="/img/2639973.jpg" alt="Avatar Logo" style="width:40px;"> 
-                            </a> 
-                            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
-                            <span class="navbar-toggler-icon"></span>
-                            </button>
-                            <div class="navbar-collapse collapse  " id="navbarTogglerDemo02">
-                                <ul class="navbar-nav ms-auto ">
-                                        <li class="nav-item">
-                                        <a class="nav-link text-dark" href="http://127.0.0.1:5500/web.html#">Home</a>
-                                        </li>
-                                        <li class="nav-item">
-                                        <a class="nav-link text-dark" href="http://127.0.0.1:5500/about.html">About</a>
-                                        </li>
-                                        <li class="nav-item">
-                                        <a class="nav-link text-dark" href="http://127.0.0.1:5500/contact.html">Contact</a>
-                                        </li>
-                                </ul>      
-                            </div>
-                        </div>
-                    </nav>
-                </div>             
-            </div>
-        </div>
-    </header>
-    `
-    }
-}
-customElements.define('my-header', MyHeader)
-
-class Myfooter extends HTMLElement {
-    connectedCallback(){
-        this.innerHTML = `
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>footer</title>
+</head>
+<body>
     <footer>
         <div class="container text-bg-primary">
             <div class="row  pb-2 pt-2 ">
@@ -104,9 +70,5 @@ class Myfooter extends HTMLElement {
             </div>
         </div>
     </footer>
-    `
-    }
-}
-customElements.define('my-footer', Myfooter)
-
-
+</body>
+</html>
