@@ -68,26 +68,26 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     if ($form_valid) {
         include("connect.php");
         try{
-        $stmt =  $conn->prepare("INSERT INTO customer(first_name, last_name, company_email, phone_number, country, message) VALUES(?,?,?,?,?,?)");
-        // print_r($stmt);
+            $stmt =  $conn->prepare("INSERT INTO customer(first_name, last_name, company_email, phone_number, country, message) VALUES(?,?,?,?,?,?)");
+            // print_r($stmt);
 
-        $stmt->bind_param("ssssss", $first_name, $last_name, $company_email, $phone_number, $country, $message);
-        //   print_r($stmt);
-        $stmt->execute();
-        $stmt->close();
-        $conn->close();
-        $_SESSION['alert_message'] = "Customer is added successfully";
-        $_SESSION['alert_type'] = "success";
-        header("Location: contact.php");
+            $stmt->bind_param("ssssss", $first_name, $last_name, $company_email, $phone_number, $country, $message);
+            //   print_r($stmt);
+            $stmt->execute();
+            $stmt->close();
+            $conn->close();
+            $_SESSION['alert_message'] = "Customer is added successfully";
+            $_SESSION['alert_type'] = "success";
+            header("Location: contact.php");
 
         }catch (mysqli_sql_exception  $e) {
-        echo $_SESSION['alert_message'] . $e->getMessage();
-        $_SESSION['alert_type'] = "error";
-        header("Location: contact.php");
+            echo $_SESSION['alert_message'] . $e->getMessage();
+            $_SESSION['alert_type'] = "error";
+            header("Location: contact.php");
         }        
         exit();       
 
-        }        
+    }        
     
 }
 
