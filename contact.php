@@ -63,7 +63,7 @@
 
                     </div>
                     <div class="form-group pb-3">
-                        <input type="checkbox" id="checkbox" name="checkbox">
+                            <input type="checkbox" id="checkbox" name="checkbox">
                         <label for="checkbox"> your agree to term and condition.</label>
                     </div>
                     <button type="submit" class="btn btn-primary">Submit</button>
