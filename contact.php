@@ -6,6 +6,7 @@
 </head>
 
 <body>
+    <?php include("function.php")?>
     <?php include("static/include/header.php"); ?>
     <div class="container">
         <div class="row">
@@ -15,47 +16,65 @@
                 <img class="img-fluid" src="static/img/mountain_image.jpg" width="500px" height="250px" alt="">
             </div>
             <div class="col-12 col-md-6 col-sm-3 pt-3 pb-3">
+                <?php 
+                if(isset($_SESSION['alert_message'])){
+                    ?>
+                    <div class="alert alert-warning alert-dismissible fade show" role="alert">
+                        <?php echo $_SESSION['alert_message'];?>
+                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                    </div>
+                    <?php                    
+                    unset($_SESSION['alert_message']);
+                }
+                ?>
                
-                <form action="function.php" method="POST">
+                <form action="contact.php" method="POST">
                     <div class="form-group pb-3">
-                        <label for="fname">First Name :</label>
-                        <input class="form-control" type="text" name="fname" id="fname" placeholder="Enter the first name">
-                        <div class="invalid-feedback">
-                            <?php echo $firstname_err; ?>
-                        </div>
-
+                        <label>First Name:</label>
+                        <input type="text" name="fname" 
+                            class="form-control <?php echo $firstname_err ? 'is-invalid' : ''; ?>" 
+                            value="<?php echo htmlspecialchars($first_name); ?>">
+                        <?php if ($firstname_err): ?>
+                            <div class="invalid-feedback"><?php echo $firstname_err; ?></div>
+                        <?php endif; ?>
                     </div>
                     <div class="form-group pb-3">
                         <label for="lname">Last Name :</label>
-                        <input class="form-control" type="text" name="lname" id="lname" placeholder="Enter the last name">
+                        <input type="text" name="lname"  class="form-control <?php echo $lastname_err ? 'is-invalid' : ''; ?>" value="<?php echo htmlspecialchars($last_name); ?>"> <?php if ($lastname_err): ?>
                         <div class="invalid-feedback">
                             <?php echo $lastname_err; ?>
                         </div>
+                        <?php endif; ?>
                     </div>
                     <div class="form-group pb-3">
                         <label for="email">Company Email :</label>
-                        <input class="form-control" type="text" name="email" id="email" placeholder="Enter the email_id">
+                        <input type="text" name="email" class="form-control <?php echo $email_err ? 'is-invalid' : ''; ?>"value="<?php echo htmlspecialchars($company_email); ?>"> <?php if ($email_err): ?>
                         <div class="invalid-feedback">
                             <?php echo $email_err; ?>
                         </div>
+                        <?php endif; ?>
                     </div>
                     <div class="form-group pb-3">
                         <label for="pnos">Phone Number :</label>
-                        <input class="form-control" type="text" name="pnos" id="pnos" placeholder="Enter the phone number">
+                        <input name="pnos" type="text" class="form-control <?php echo $phonenos_err ? 'is-invalid' : ''; ?>"  value="<?php echo htmlspecialchars($phone_number); ?>">
+                        <?php if ($phonenos_err): ?>
                         <div class="invalid-feedback">
                             <?php echo $phonenos_err; ?>
                         </div>
+                        <?php endif; ?>
                     </div>
                     <div class="form-group pb-3">
                         <label for="country">Country :</label>
-                        <input class="form-control" type="text" name="country" id="country" placeholder="Please select your country">
+                        <input type="text" name="country" class="form-control <?php echo $countryerr ? 'is-invalid' : ''; ?>"   value="<?php echo htmlspecialchars($country); ?>">
+                        <?php if ($countryerr): ?>
                         <div class="invalid-feedback">
                             <?php echo $countryerr; ?>
                         </div>
+                        <?php endif; ?>
                     </div>
                     <div class="form-group pb-3">
                         <label for="message">Message:</label>
-                        <textarea class="form-control" placeholder="Leave a comment here" name="message" id="floatingTextarea">
+                        <textarea  name="message" class="form-control <?php echo $message_Err ? 'is-invalid' : ''; ?>" placeholder="Leave a comment here">
                         </textarea>
                         <div class="invalid-feedback">
                             <?php echo $message_Err; ?>

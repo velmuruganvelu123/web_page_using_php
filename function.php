@@ -1,7 +1,7 @@
 <?php
-
-$firstname_err = $lastname_err = $email_err = $phonenos_err = $countryerr = $messageerr = "";
-$first_name = $last_name = $company_email = $Phone_nos = $country = $message = "";
+session_start();
+$firstname_err = $lastname_err = $email_err = $phonenos_err = $countryerr = $message_Err = "";
+$first_name = $last_name = $company_email = $phone_number = $country = $message = "";
 
 $form_valid = true;
 if ($_SERVER["REQUEST_METHOD"] == "POST") {   
@@ -34,7 +34,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     } else {
         $company_email = input_data($_POST["email"]);
         if (!filter_var($company_email, FILTER_VALIDATE_EMAIL)) {
-            $email_err = "Email is allowed";
+            $email_err = "Email is not allowed";
             $form_valid = false;
         }
     }
@@ -44,7 +44,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $form_valid = false;
     } else {
         $phone_number = input_data($_POST["pnos"]);
-        if (!preg_match("/^[0-9]*$/", $phone_number)) {
+        if (!preg_match('/^[0-9]{10}+$/', $phone_number)) {
             $phonenos_err  = "Mobile must contain 10 digits";
             $form_valid = false;
         }
@@ -67,18 +67,28 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     if ($form_valid) {
         include("connect.php");
+        try{
         $stmt =  $conn->prepare("INSERT INTO customer(first_name, last_name, company_email, phone_number, country, message) VALUES(?,?,?,?,?,?)");
         // print_r($stmt);
 
         $stmt->bind_param("ssssss", $first_name, $last_name, $company_email, $phone_number, $country, $message);
         //   print_r($stmt);
         $stmt->execute();
-        echo "Customer is added sucessfully";
         $stmt->close();
         $conn->close();
-    } else {
-        echo "customer not add sucessfully";
-    }
+        $_SESSION['alert_message'] = "Customer is added successfully";
+        $_SESSION['alert_type'] = "success";
+        header("Location: contact.php");
+
+        }catch (mysqli_sql_exception  $e) {
+        echo $_SESSION['alert_message'] . $e->getMessage();
+        $_SESSION['alert_type'] = "error";
+        header("Location: contact.php");
+        }        
+        exit();       
+
+        }        
+    
 }
 
 function input_data($data)
