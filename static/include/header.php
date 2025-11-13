@@ -4,6 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><?php echo $title;?></title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
@@ -26,15 +27,15 @@
                             </button>
                             <div class="navbar-collapse collapse  " id="navbarTogglerDemo02">
                                 <ul class="navbar-nav ms-auto ">
-                                        <li class="nav-item">
+                                    <li class="nav-item">
                                         <a class="nav-link text-dark" href="http://localhost/TASK1/web.php">Home</a>
-                                        </li>
-                                        <li class="nav-item">
+                                    </li>
+                                    <li class="nav-item">
                                         <a class="nav-link text-dark" href="http://localhost/TASK1/about.php">About</a>
-                                        </li>
-                                        <li class="nav-item">
+                                    </li>
+                                    <li class="nav-item">
                                         <a class="nav-link text-dark" href="http://localhost/TASK1/contact.php">Contact</a>
-                                        </li>
+                                    </li>
                                 </ul>      
                             </div>
                         </div>
@@ -42,7 +43,5 @@
                 </div>             
             </div>
         </div>
-    </header>    
-</body>
-</html>
+</header>    
 

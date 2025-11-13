@@ -1,14 +1,7 @@
-<!DOCTYPE html>
-<html lang="en">
-
-<head>    
-    <title>FIRST WEB PAGE</title>
-</head>
-
-<body class="bg-white">
-    <?php
-    include("static/include/header.php");
-    ?>
+<?php 
+$title = "web_page";
+include("static/include/header.php");
+?> 
     <div class="container pt-4">
         <div class="row">
             <div class="col-12 col-md-6 col-sm-3">
@@ -34,8 +27,5 @@
             </div>
         </div>
     </div>
-    <?php
-    include("static/include/footer.php"); 
-    ?>
-</body>
-</html>
+<?php include("static/include/footer.php");?>     
+    

@@ -1,13 +1,8 @@
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <title>Contact</title>
-</head>
-
-<body>
-    <?php include("function.php")?>
-    <?php include("static/include/header.php"); ?>
+<?php include("function.php")?>
+<?php 
+$title = "contact_page";
+include("static/include/header.php");
+?>
     <div class="container">
         <div class="row">
             <div class="col-12 col-md-6 col-sm-4">
@@ -16,18 +11,13 @@
                 <img class="img-fluid" src="static/img/mountain_image.jpg" width="500px" height="250px" alt="">
             </div>
             <div class="col-12 col-md-6 col-sm-3 pt-3 pb-3">
-                <?php 
-                if(isset($_SESSION['alert_message'])){
-                    ?>
-                    <div class="alert alert-warning alert-dismissible fade show" role="alert">
-                        <?php echo $_SESSION['alert_message'];?>
+                <?php if (!empty($alert_message)): ?>
+                    <div class="alert alert-<?php echo ($alert_type == 'success') ? 'success' : 'danger'; ?> alert-dismissible fade show" role="alert">
+                        <?php echo $alert_message; ?>
                         <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
                     </div>
-                    <?php                    
-                    unset($_SESSION['alert_message']);
-                }
-                ?>
-               
+                <?php endif; ?>
+                               
                 <form action="contact.php" method="POST">
                     <div class="form-group pb-3">
                         <label>First Name:</label>
@@ -55,8 +45,8 @@
                         <?php endif; ?>
                     </div>
                     <div class="form-group pb-3">
-                        <label for="pnos">Phone Number :</label>
-                        <input name="pnos" type="text" class="form-control <?php echo $phonenos_err ? 'is-invalid' : ''; ?>"  value="<?php echo htmlspecialchars($phone_number); ?>">
+                        <label for="phone_nos">Phone Number :</label>
+                        <input name="phone_nos" type="text" class="form-control <?php echo $phonenos_err ? 'is-invalid' : ''; ?>"  value="<?php echo htmlspecialchars($phone_number); ?>">
                         <?php if ($phonenos_err): ?>
                         <div class="invalid-feedback">
                             <?php echo $phonenos_err; ?>
@@ -79,7 +69,6 @@
                         <div class="invalid-feedback">
                             <?php echo $message_Err; ?>
                         </div>
-
                     </div>
                     <div class="form-group pb-3">
                             <input type="checkbox" id="checkbox" name="checkbox">
@@ -90,8 +79,4 @@
             </div>
         </div>
     </div> 
-    <?php include("static/include/footer.php");?>
-
-</body>
-
-</html>
+<?php include("static/include/footer.php");?>
