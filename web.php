@@ -1,4 +1,4 @@
-<?php 
+<?php
 $title = "web_page";
 include("static/include/header.php");
 ?> 

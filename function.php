@@ -83,7 +83,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
        
     }
 } else {
-    echo "submitted via a different method";
+    // echo "submitted via a different method";
 }
 
 function input_data($data)
@@ -94,3 +94,31 @@ function input_data($data)
     $data = htmlspecialchars($data);
     return $data;
 }
+
+function check_login($conn){
+    if(isset($_SESSION['user_id']))
+    {
+        $id = $_SESSION['user_id'];
+        $query ="select * from login_users WHERE user_id ='$id' limit 1";
+        $result = mysqli_query($conn, $query);
+        if($result && mysqli_num_rows($result) > 0){
+            $user_data = mysqli_fetch_assoc($result);
+            return $user_data;
+        }    
+    }
+    header("Location: login.php");
+    die;
+}
+function random_num($length){
+$text = "";
+if($length < 5)
+{
+    $length = 5;
+}
+$len = rand(4, $length);
+for ($i=0; $i < $len; $i++){
+    $text .= rand(0,9);
+}
+return $text;
+}
+

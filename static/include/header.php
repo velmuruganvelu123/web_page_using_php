@@ -36,7 +36,12 @@
                                     <li class="nav-item">
                                         <a class="nav-link text-dark" href="http://localhost/TASK1/contact.php">Contact</a>
                                     </li>
+                                    
                                 </ul>      
+                            </div>
+                            <button class="btn btn-danger" onclick="location.href='logout.php'" type="button">
+                            logout</button>
+                            <div>
                             </div>
                         </div>
                     </nav>
